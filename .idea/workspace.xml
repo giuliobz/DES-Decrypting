@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="32f5a25f-e37c-4239-8ba2-d017894a1d99" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Ya8vVQYqMwm4MXz30ybdKugBpm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/SynchronizedThread" />
+      <recent name="$PROJECT_DIR$/src/ReadWriteLock" />
+      <recent name="$PROJECT_DIR$/src/RunnableSearcher" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="SynchronizedThread" />
+      <recent name="Runnable" />
+      <recent name="ReadWriteLock" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Dictionaries" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.DictDecrypting">
+    <configuration name="DictDecrypting" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Decryptor.DictDecrypting" />
+      <module name="DES-Decrypting" />
+      <option name="PROGRAM_PARAMETERS" value="12 Dictionaries/Dictionary_even.txt 10" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Callable.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PasswordBuilder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="PasswordDictionary.PasswordBuilder" />
+      <module name="DES-Decrypting" />
+      <option name="PROGRAM_PARAMETERS" value="English8Words.txt Dictionaries/Dictionary_ odd" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="PasswordDictionary.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.PasswordBuilder" />
+      <item itemvalue="Application.DictDecrypting" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.PasswordBuilder" />
+        <item itemvalue="Application.DictDecrypting" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="32f5a25f-e37c-4239-8ba2-d017894a1d99" name="Default Changelist" comment="" />
+      <created>1583169575801</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583169575801</updated>
+      <workItem from="1583169579318" duration="2672000" />
+      <workItem from="1583227670948" duration="2958000" />
+      <workItem from="1583232464336" duration="2508000" />
+      <workItem from="1583246325823" duration="1438000" />
+      <workItem from="1583249194602" duration="7528000" />
+      <workItem from="1583308358547" duration="9525000" />
+      <workItem from="1583335853573" duration="4801000" />
+      <workItem from="1583392970264" duration="2124000" />
+      <workItem from="1583398799052" duration="4647000" />
+      <workItem from="1583423148208" duration="139000" />
+      <workItem from="1583424253619" duration="84000" />
+      <workItem from="1583424352319" duration="351000" />
+      <workItem from="1583481293940" duration="3234000" />
+      <workItem from="1583485679310" duration="9026000" />
+      <workItem from="1583501542922" duration="641000" />
+      <workItem from="1583503161402" duration="8039000" />
+      <workItem from="1583515261712" duration="548000" />
+      <workItem from="1583515833132" duration="477000" />
+      <workItem from="1583570488811" duration="8014000" />
+      <workItem from="1583589832095" duration="3414000" />
+      <workItem from="1583684948211" duration="143000" />
+      <workItem from="1583739305416" duration="832000" />
+      <workItem from="1583740159502" duration="9485000" />
+      <workItem from="1583762406772" duration="9115000" />
+      <workItem from="1583855145972" duration="4977000" />
+      <workItem from="1583860280271" duration="756000" />
+      <workItem from="1583861135508" duration="313000" />
+    </task>
+    <task id="LOCAL-00001" summary="'update .gitignore'">
+      <created>1583169956972</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1583169956972</updated>
+    </task>
+    <task id="LOCAL-00002" summary="'update DES and Dictionary.txt'">
+      <created>1583172115361</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1583172115361</updated>
+    </task>
+    <task id="LOCAL-00003" summary="'update pssbuilder and Dictionary.txt'">
+      <created>1583172235575</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1583172235575</updated>
+    </task>
+    <task id="LOCAL-00004" summary="'update SequentialFinder class'">
+      <created>1583234960762</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1583234960762</updated>
+    </task>
+    <task id="LOCAL-00005" summary="'update SequentialFinder class'">
+      <created>1583255024160</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1583255024160</updated>
+    </task>
+    <task id="LOCAL-00006" summary="'add parallel structure searcher'">
+      <created>1583309370884</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1583309370884</updated>
+    </task>
+    <task id="LOCAL-00007" summary="'update dictSearcher threads '">
+      <created>1583314508964</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1583314508964</updated>
+    </task>
+    <task id="LOCAL-00008" summary="'update dict parallel search'">
+      <created>1583316544180</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1583316544180</updated>
+    </task>
+    <task id="LOCAL-00009" summary="'update BruteSearcher.java'">
+      <created>1583316772022</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1583316772022</updated>
+    </task>
+    <task id="LOCAL-00010" summary="'update CallableSearcher'">
+      <created>1583317234269</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1583317234269</updated>
+    </task>
+    <task id="LOCAL-00011" summary="'general update'">
+      <created>1583336193961</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1583336193961</updated>
+    </task>
+    <task id="LOCAL-00012" summary="'finish CallableSearcher'">
+      <created>1583341715752</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1583341715752</updated>
+    </task>
+    <task id="LOCAL-00013" summary="'finish RunnableSearcher'">
+      <created>1583342037238</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1583342037238</updated>
+    </task>
+    <task id="LOCAL-00014" summary="'general update'">
+      <created>1583342107825</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1583342107825</updated>
+    </task>
+    <task id="LOCAL-00015" summary="'general update'">
+      <created>1583395724458</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1583395724458</updated>
+    </task>
+    <task id="LOCAL-00016" summary="'general update'">
+      <created>1583396035833</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1583396035833</updated>
+    </task>
+    <task id="LOCAL-00017" summary="'updates'">
+      <created>1583424294162</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1583424294162</updated>
+    </task>
+    <task id="LOCAL-00018" summary="'updates : add document, rewadwrite lock and change names'">
+      <created>1583481526769</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1583481526769</updated>
+    </task>
+    <task id="LOCAL-00019" summary="'general updates for graphic visualizations'">
+      <created>1583489846260</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1583489846260</updated>
+    </task>
+    <task id="LOCAL-00020" summary="'general updates for graphic visualizations'">
+      <created>1583493911614</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1583493911614</updated>
+    </task>
+    <task id="LOCAL-00021" summary="'updates Graph.java'">
+      <created>1583494065144</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1583494065144</updated>
+    </task>
+    <task id="LOCAL-00022" summary="'updates Graph.java'">
+      <created>1583494523971</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1583494523971</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="'update .gitignore'" />
+    <MESSAGE value="'update DES and Dictionary.txt'" />
+    <MESSAGE value="'update pssbuilder and Dictionary.txt'" />
+    <MESSAGE value="'update SequentialFinder class'" />
+    <MESSAGE value="'add parallel structure searcher'" />
+    <MESSAGE value="'update dictSearcher threads '" />
+    <MESSAGE value="'update dict parallel search'" />
+    <MESSAGE value="'update BruteSearcher.java'" />
+    <MESSAGE value="'update CallableSearcher'" />
+    <MESSAGE value="'finish CallableSearcher'" />
+    <MESSAGE value="'finish RunnableSearcher'" />
+    <MESSAGE value="'general update'" />
+    <MESSAGE value="'updates'" />
+    <MESSAGE value="'updates : add document, rewadwrite lock and change names'" />
+    <MESSAGE value="'general updates for graphic visualizations'" />
+    <MESSAGE value="'updates Graph.java'" />
+    <option name="LAST_COMMIT_MESSAGE" value="'updates Graph.java'" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="558" y="209" width="1132" height="743" key="#Project_Structure" timestamp="1583169662461">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state x="558" y="209" width="1132" height="743" key="#Project_Structure/0.27.1920.1052@0.27.1920.1052" timestamp="1583169662461" />
+    <state x="696" y="306" width="524" height="492" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1583593008512">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state x="696" y="306" width="524" height="492" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.27.1920.1052@0.27.1920.1052" timestamp="1583593008512" />
+    <state x="303" y="94" width="1076" height="658" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583859859713">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state x="303" y="94" width="1076" height="658" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1052@0.27.1920.1052" timestamp="1583859859713" />
+    <state x="771" y="220" width="374" height="583" key="#com.intellij.ide.util.MemberChooser" timestamp="1583492782571">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state x="771" y="220" width="374" height="583" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1052@0.27.1920.1052" timestamp="1583492782570" />
+    <state x="644" y="19" width="628" height="1060" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1583337905657">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state x="644" y="19" width="628" height="1060" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.27.1920.1052@0.27.1920.1052" timestamp="1583337905657" />
+    <state x="696" y="273" width="524" height="510" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1583855299643">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state x="696" y="273" width="524" height="510" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.1052@0.27.1920.1052" timestamp="1583855299643" />
+    <state x="572" y="19" width="865" height="920" key="CommitChangelistDialog2" timestamp="1583494523925">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state x="572" y="19" width="865" height="920" key="CommitChangelistDialog2/0.27.1920.1052@0.27.1920.1052" timestamp="1583494523925" />
+    <state x="752" y="284" width="739" height="521" key="FileChooserDialogImpl" timestamp="1583494230522">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state x="752" y="284" width="739" height="521" key="FileChooserDialogImpl/0.27.1920.1052@0.27.1920.1052" timestamp="1583494230522" />
+    <state x="796" y="443" width="761" height="243" key="Github.ShareDialog" timestamp="1583169597330">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state x="796" y="443" width="761" height="243" key="Github.ShareDialog/0.27.1920.1052@0.27.1920.1052" timestamp="1583169597330" />
+    <state x="740" y="205" width="435" height="693" key="Github.UntrackedFilesDialog" timestamp="1583169604488">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state x="740" y="205" width="435" height="693" key="Github.UntrackedFilesDialog/0.27.1920.1052@0.27.1920.1052" timestamp="1583169604488" />
+    <state width="1874" height="308" key="GridCell.Tab.0.bottom" timestamp="1583859902121">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state width="1874" height="308" key="GridCell.Tab.0.bottom/0.27.1920.1052@0.27.1920.1052" timestamp="1583859902121" />
+    <state width="1874" height="308" key="GridCell.Tab.0.center" timestamp="1583859902121">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state width="1874" height="308" key="GridCell.Tab.0.center/0.27.1920.1052@0.27.1920.1052" timestamp="1583859902121" />
+    <state width="1874" height="308" key="GridCell.Tab.0.left" timestamp="1583859902120">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state width="1874" height="308" key="GridCell.Tab.0.left/0.27.1920.1052@0.27.1920.1052" timestamp="1583859902120" />
+    <state width="1874" height="308" key="GridCell.Tab.0.right" timestamp="1583859902121">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state width="1874" height="308" key="GridCell.Tab.0.right/0.27.1920.1052@0.27.1920.1052" timestamp="1583859902121" />
+    <state width="1874" height="91" key="GridCell.Tab.1.bottom" timestamp="1583752690826">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state width="1874" height="91" key="GridCell.Tab.1.bottom/0.27.1920.1052@0.27.1920.1052" timestamp="1583752690826" />
+    <state width="1874" height="91" key="GridCell.Tab.1.center" timestamp="1583752690826">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state width="1874" height="91" key="GridCell.Tab.1.center/0.27.1920.1052@0.27.1920.1052" timestamp="1583752690826" />
+    <state width="1874" height="91" key="GridCell.Tab.1.left" timestamp="1583752690826">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state width="1874" height="91" key="GridCell.Tab.1.left/0.27.1920.1052@0.27.1920.1052" timestamp="1583752690826" />
+    <state width="1874" height="91" key="GridCell.Tab.1.right" timestamp="1583752690826">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state width="1874" height="91" key="GridCell.Tab.1.right/0.27.1920.1052@0.27.1920.1052" timestamp="1583752690826" />
+    <state x="446" y="53" width="1024" height="853" key="SettingsEditor" timestamp="1583493807967">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state x="446" y="53" width="1024" height="853" key="SettingsEditor/0.27.1920.1052@0.27.1920.1052" timestamp="1583493807967" />
+    <state x="630" y="375" width="651" height="232" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1583493800490">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state x="630" y="375" width="651" height="232" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.27.1920.1052@0.27.1920.1052" timestamp="1583493800490" />
+    <state x="696" y="301" width="524" height="501" key="extract.method.dialog" timestamp="1583338353935">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state x="696" y="301" width="524" height="501" key="extract.method.dialog/0.27.1920.1052@0.27.1920.1052" timestamp="1583338353935" />
+    <state x="268" y="148" width="1380" height="807" key="new project wizard" timestamp="1583424364712">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state x="268" y="148" width="1380" height="807" key="new project wizard/0.27.1920.1052@0.27.1920.1052" timestamp="1583424364712" />
+    <state x="624" y="249" key="run.anything.popup" timestamp="1583576704687">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state x="624" y="249" key="run.anything.popup/0.27.1920.1052@0.27.1920.1052" timestamp="1583576704687" />
+    <state x="623" y="251" width="672" height="678" key="search.everywhere.popup" timestamp="1583507289758">
+      <screen x="0" y="27" width="1920" height="1052" />
+    </state>
+    <state x="623" y="251" width="672" height="678" key="search.everywhere.popup/0.27.1920.1052@0.27.1920.1052" timestamp="1583507289758" />
+  </component>
+</project>
