@@ -1,6 +1,7 @@
 package Decryptor;
 
 import Callable.CallableFinder;
+import Callable.DictSearcher;
 import Runnable.RunnableFinder;
 import ReadWriteLock.ReadWriteLockFinder;
 import SynchronizedThread.SynchronizedFinder;
@@ -26,7 +27,7 @@ public class DictDecrypting {
 
         // Password used for experiment
         String password = dict.get((dict.size() / 2) - 1);
-        System.out.println("The password to find " + password);
+        System.out.println("The password to find " + password + " in position " + ((dict.size() / 2) - 1));
 
         // Define DES class and methods classes
         DES des = new DES(password);
@@ -36,23 +37,46 @@ public class DictDecrypting {
         ReadWriteLockFinder readWriteLockFinder = new ReadWriteLockFinder(des, 2);
         SynchronizedFinder synchronizedFinder = new SynchronizedFinder(des, 2);
 
-        // *************************************************************************************************************
-        // Dictionary search
-        // *************************************************************************************************************
+        /*
+        int chunkSize = dict.size() / 10;
+        System.out.println(chunkSize);
+        int startIndex, endIndex;
+
+        for (int threadId = 0; threadId < 10; ++threadId){
+            startIndex = chunkSize * threadId;
+            endIndex = (startIndex + chunkSize);
+
+            // the last thread take the dictionary left
+            if ((threadId + 1 == 10) & (dict.size() % 10 != 0)){
+                endIndex = dict.size();
+            }
+
+            ArrayList<String> l = new ArrayList<String>(dict.subList(startIndex, endIndex));
+            System.out.println("Thread " + threadId + " controll from [ " + startIndex + " - " + endIndex + " ]");
+            System.out.println("Starting word " + l.get(0) + " and end wod " + l.get(l.size() - 1));
+        }
+
+         */
+
+        // ********************************************************************************************************** \\
+        //                                              Dictionary search                                             \\
+        // ********************************************************************************************************** \\
 
         ArrayList<List> speedupC = new ArrayList<>();
         ArrayList<List> speedupR = new ArrayList<>();
         ArrayList<List> speedupL = new ArrayList<>();
         ArrayList<List> speedupS = new ArrayList<>();
 
-        for (int numThread = 2; numThread <= Integer.parseInt(args[0]); ++numThread) {
+        for (int numThread = 2; numThread <= Integer.parseInt(args[0]); numThread += 2) {
 
             callableFinder.setThreads(numThread);
             runnableFinder.setThreads(numThread);
             readWriteLockFinder.setThreads(numThread);
             synchronizedFinder.setThreads(numThread);
 
+            System.out.println("/***********************************************************************************/");
             System.out.println("Starting iteration " + (numThread));
+            System.out.println("/***********************************************************************************/");
 
             ArrayList<Double> C = new ArrayList<>();
             ArrayList<Double> R = new ArrayList<>();
@@ -72,7 +96,7 @@ public class DictDecrypting {
                 L.add(sequentialElapsedTime / durationLock);
                 S.add(sequentialElapsedTime / durationSync);
 
-                System.out.println(" ********************************************************************************* ");
+                System.out.println("/*******************************************************************************/");
                 System.out.println("");
 
                 callableFinder.setThreads(numThread);
@@ -88,10 +112,12 @@ public class DictDecrypting {
             speedupS.add(firstOrderStatistics(S, numThread));
         }
 
-        writeCSV(speedupC, "CallableSpeedup_" + args[2]);
-        writeCSV(speedupR, "RunnableSpeedup_" + args[2]);
-        writeCSV(speedupL, "LockSpeedup_" + args[2]);
-        writeCSV(speedupS, "SyncSpeedup_" + args[2]);
+        writeCSV(speedupC, "EvenDictResults/CallableSpeedup_" + args[2]);
+        writeCSV(speedupR, "EvenDictResults/RunnableSpeedup_" + args[2]);
+        writeCSV(speedupL, "EvenDictResults/LockSpeedup_" + args[2]);
+        writeCSV(speedupS, "EvenDictResults/SyncSpeedup_" + args[2]);
+
+
     }
 
     private static ArrayList<String> readDict(String dictPath) throws FileNotFoundException {
@@ -107,9 +133,9 @@ public class DictDecrypting {
         return dict;
     }
 
-    public static List<Double> firstOrderStatistics(ArrayList<Double> m, int numberThread) {
+    public static List<String> firstOrderStatistics(ArrayList<Double> m, int numberThread) {
 
-        List<Double> data = new ArrayList<>();
+        List<String> data = new ArrayList<>();
 
         double sum = 0;
 
@@ -118,7 +144,7 @@ public class DictDecrypting {
         }
 
         double mean = sum / m.size();
-        data.add(mean);
+        data.add(String.valueOf(mean));
 
         double std = 0;
         for (double num : m) {
@@ -126,8 +152,8 @@ public class DictDecrypting {
         }
 
         std = Math.sqrt(std / m.size());
-        data.add(std);
-        data.add((double) numberThread);
+        data.add(String.valueOf(std));
+        data.add(String.valueOf(numberThread));
 
         return data;
     }
