@@ -16,19 +16,19 @@ public class ReadWriteLockFinder {
 
     // define the collection of searcher
     private List<DictSearcher> ds;
-    private State findPasswordDict;
+    private State findPassword;
 
     public ReadWriteLockFinder(DES des, int numberThreads) {
         this.des = des;
         this.numberThreads = numberThreads;
         this.ds = new ArrayList<>();
-        this.findPasswordDict = new State();
+        this.findPassword = new State();
     }
 
     public void setThreads(int numberThreads){
         this.numberThreads = numberThreads;
         ds = new ArrayList<DictSearcher>();
-        this.findPasswordDict.reset();
+        this.findPassword.reset();
     }
 
     public long dictionaryFinder(ArrayList<String> dictionary) throws InterruptedException {
@@ -47,7 +47,7 @@ public class ReadWriteLockFinder {
                 endIndex = dictionary.size();
             }
 
-            ds.add(new DictSearcher(des, findPasswordDict, new ArrayList<String>(dictionary.subList(startIndex, endIndex)), thredId));
+            ds.add(new DictSearcher(des, findPassword, new ArrayList<String>(dictionary.subList(startIndex, endIndex)), thredId));
         }
 
         ExecutorService executorService = Executors.newFixedThreadPool(numberThreads);

@@ -15,7 +15,7 @@ public class RunnableFinder {
     // define variable to password search
     private DES des;
     private int numberThreads;
-    private AtomicBoolean findPasswordDict;
+    private AtomicBoolean findPassword;
 
     // define the collection of searcher
     private List<DictSearcher> ds;
@@ -24,13 +24,13 @@ public class RunnableFinder {
         this.des = des;
         this.numberThreads = numberThreads;
         this.ds = new ArrayList<>();
-        this.findPasswordDict = new AtomicBoolean(false);
+        this.findPassword = new AtomicBoolean(false);
     }
 
     public void setThreads(int numberThreads) {
         this.numberThreads = numberThreads;
         ds = new ArrayList<DictSearcher>();
-        findPasswordDict = new AtomicBoolean(false);
+        findPassword = new AtomicBoolean(false);
     }
 
 
@@ -50,7 +50,7 @@ public class RunnableFinder {
                 endIndex = dictionary.size();
             }
 
-            ds.add(new DictSearcher(des, findPasswordDict, new ArrayList<String>(dictionary.subList(startIndex, endIndex)), thredId));
+            ds.add(new DictSearcher(des, findPassword, new ArrayList<String>(dictionary.subList(startIndex, endIndex)), thredId));
         }
 
         ExecutorService executorService = Executors.newFixedThreadPool(numberThreads);;

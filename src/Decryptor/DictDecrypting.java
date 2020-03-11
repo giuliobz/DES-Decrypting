@@ -47,6 +47,11 @@ public class DictDecrypting {
 
         for (int numThread = 2; numThread <= Integer.parseInt(args[0]); ++numThread) {
 
+            callableFinder.setThreads(numThread);
+            runnableFinder.setThreads(numThread);
+            readWriteLockFinder.setThreads(numThread);
+            synchronizedFinder.setThreads(numThread);
+
             System.out.println("Starting iteration " + (numThread));
 
             ArrayList<Double> C = new ArrayList<>();
@@ -67,14 +72,13 @@ public class DictDecrypting {
                 L.add(sequentialElapsedTime / durationLock);
                 S.add(sequentialElapsedTime / durationSync);
 
-
-                callableFinder.setThreads(numThread + 1);
-                runnableFinder.setThreads(numThread + 1);
-                readWriteLockFinder.setThreads(numThread + 1);
-                synchronizedFinder.setThreads(numThread + 1);
-
                 System.out.println(" ********************************************************************************* ");
                 System.out.println("");
+
+                callableFinder.setThreads(numThread);
+                runnableFinder.setThreads(numThread);
+                readWriteLockFinder.setThreads(numThread);
+                synchronizedFinder.setThreads(numThread);
 
             }
 
@@ -82,7 +86,6 @@ public class DictDecrypting {
             speedupR.add(firstOrderStatistics(R, numThread));
             speedupL.add(firstOrderStatistics(L, numThread));
             speedupS.add(firstOrderStatistics(S, numThread));
-
         }
 
         writeCSV(speedupC, "CallableSpeedup_" + args[2]);
