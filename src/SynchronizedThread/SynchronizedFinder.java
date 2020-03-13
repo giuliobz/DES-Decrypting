@@ -32,7 +32,7 @@ public class SynchronizedFinder {
     }
 
 
-    public long dictionaryFinder(ArrayList<String> dictionary) throws  InterruptedException {
+    public double dictionaryFinder(ArrayList<String> dictionary) throws  InterruptedException {
 
 
         // create dict chunk
@@ -53,7 +53,7 @@ public class SynchronizedFinder {
         }
 
         ExecutorService executorService = Executors.newFixedThreadPool(numberThreads);
-        long startTime = System.nanoTime();
+        double startTime = System.nanoTime();
 
         try {
 
@@ -69,8 +69,8 @@ public class SynchronizedFinder {
         }
         executorService.shutdownNow();
         executorService.awaitTermination(10000, TimeUnit.MINUTES);
-        long endTime = System.nanoTime();
-        long duration = endTime - startTime;
+        double endTime = System.nanoTime();
+        double duration = endTime - startTime;
 
         return duration / 1000000;
     }

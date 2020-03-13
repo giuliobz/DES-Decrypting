@@ -96,12 +96,10 @@ public class DictionaryModifier {
         */
         this.numberWordDict = new ArrayList<>();
         for (String words: this.startingDict){
-            String words_1 =  words.substring(0, words.length() - 4) + (new Random().nextInt(999) + 1000);
-            String words_2 = (new Random().nextInt(999) + 1000) + words.substring(words.length() - 4, words.length());
+            String word =  words.substring(0, words.length() - 4) + (new Random().nextInt(999) + 1000);
 
             //System.out.println(words);
-            this.numberWordDict.add(words_1);
-            this.numberWordDict.add(words_2);
+            this.numberWordDict.add(word);
         }
     }
 
@@ -173,6 +171,14 @@ public class DictionaryModifier {
         if (this.numberWordDict.size() > 0){
             mergedDict.addAll(this.numberWordDict);
         }
+
+        Collections.shuffle(mergedDict);
+
+        return mergedDict;
+    }
+
+    public ArrayList<String> mergingPermutation(){
+        ArrayList<String> mergedDict = new ArrayList<>();
 
         if (perm) {
             mergedDict.addAll(PstartingDict);

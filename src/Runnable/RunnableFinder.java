@@ -34,7 +34,7 @@ public class RunnableFinder {
     }
 
 
-    public long dictionaryFinder(ArrayList<String> dictionary) throws FileNotFoundException, InterruptedException {
+    public double dictionaryFinder(ArrayList<String> dictionary) throws FileNotFoundException, InterruptedException {
 
         // create dict chunk
         int chunkSize = dictionary.size() / numberThreads;
@@ -54,7 +54,7 @@ public class RunnableFinder {
         }
 
         ExecutorService executorService = Executors.newFixedThreadPool(numberThreads);;
-        long startTime = System.nanoTime();
+        double startTime = System.nanoTime();
 
         try {
             System.out.println("Starting Runnable Thread Dict Search");
@@ -68,8 +68,8 @@ public class RunnableFinder {
         }
         executorService.shutdownNow();
         executorService.awaitTermination(10000, TimeUnit.MINUTES);
-        long endTime = System.nanoTime();
-        long duration = endTime - startTime;
+        double endTime = System.nanoTime();
+        double duration = endTime - startTime;
 
         return duration / 1000000;
     }

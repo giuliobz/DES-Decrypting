@@ -23,25 +23,30 @@ public class PasswordBuilder {
 
         // Write the final folder
         BufferedWriter writer = new BufferedWriter(new FileWriter(args[1] + args[2] + ".txt", true));
-        ArrayList<String> m =dm.mergingFolders();
+        ArrayList<String> m = dm.mergingFolders();
+        ArrayList<String> p = dm.mergingFolders();
+
+        for (int i = 0; i < p.size(); ++i){
+            if (args[2] == "even"){
+                if ( (m.size() % 2 == 0) & (m.size() % 4 == 0) & (m.size() % 6 == 0) & (m.size() % 8 == 0) & (m.size() % 10 == 0) & (m.size() % 12 == 0) ) {
+                    break;
+                }
+            }else {
+
+                if ( (m.size() % 3 == 0) & (m.size() % 5 == 0) & (m.size() % 7 == 0) & (m.size() % 9 == 0) & (m.size() % 11 == 0)) {
+                    break;
+                }
+            }
+
+            m.add(p.get(i));
+        }
 
         System.out.println(" Write all passwords ");
 
+
+        // 19 958 400
         for (int i = 1; i <= m.size(); ++i){
             writer.write(m.get(i) + "\n");
-            if (i > m.size() / 2) {
-                if (args[2] == "even"){
-                    if ( (i % 2 == 0) & (i % 4 == 0) & (i % 6 == 0) & (i % 8 == 0) & (i % 10 == 0) & (i % 12 == 0) ) {
-                        break;
-                    }
-                }else {
-
-                    if ( (i % 3 == 0) & (i % 5 == 0) & (i % 7 == 0) & (i % 9 == 0) & (i % 11 == 0) & (i % 12 == 0) ) {
-                        break;
-                    }
-                }
-
-            }
         }
         writer.close();
     }

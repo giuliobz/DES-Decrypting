@@ -33,7 +33,7 @@ public class CallableFinder {
         this.findPassword = new AtomicBoolean(false);
     }
 
-    public long dictionaryFinder(ArrayList<String> dictionary) {
+    public double dictionaryFinder(ArrayList<String> dictionary) {
 
 
         // create dict chunk
@@ -55,7 +55,7 @@ public class CallableFinder {
 
         ExecutorService executorService = Executors.newFixedThreadPool(numberThreads);
         System.out.println("Starting Callable Thread Dict Search");
-        long startTime = System.nanoTime();
+        double startTime = System.nanoTime();
 
         try {
 
@@ -67,8 +67,8 @@ public class CallableFinder {
             System.err.println(e);
         }
         executorService.shutdownNow();
-        long endTime = System.nanoTime();
-        long duration = endTime - startTime;
+        double endTime = System.nanoTime();
+        double duration = endTime - startTime;
 
         /*
         for (Future<String> future : futures) {

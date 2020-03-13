@@ -14,15 +14,14 @@ public class SequentialFinder {
         this.des = des;
     }
 
-    public long dictionaryFinder(ArrayList<String> dictionary) throws Exception {
+    public void dictionaryFinder(ArrayList<String> dictionary) throws Exception {
         /*
             Dictionary hacking function. It use the password in the
             dictionary to hack the password that the user want to find.
         */
 
         // Open dict folder
-        long startTime = System.nanoTime();
-
+        //long startTime = System.nanoTime();
 
         int i = 0;
         System.out.println("Starting searching password in dictionary");
@@ -38,9 +37,9 @@ public class SequentialFinder {
             ++i;
         }
 
-        long endTime = System.nanoTime();
-        long duration = endTime - startTime;
+        //long endTime = System.nanoTime();
+        //long duration = endTime - startTime;
 
-        return duration / 1000000;
+        //return duration / 1000000;
     }
 }

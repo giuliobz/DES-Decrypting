@@ -1,7 +1,6 @@
 package Decryptor;
 
 import Callable.CallableFinder;
-import Callable.DictSearcher;
 import Runnable.RunnableFinder;
 import ReadWriteLock.ReadWriteLockFinder;
 import SynchronizedThread.SynchronizedFinder;
@@ -37,17 +36,18 @@ public class DictDecrypting {
         ReadWriteLockFinder readWriteLockFinder = new ReadWriteLockFinder(des, 2);
         SynchronizedFinder synchronizedFinder = new SynchronizedFinder(des, 2);
 
-        /*
-        int chunkSize = dict.size() / 10;
+
+        int numTreads = 8;
+        int chunkSize = dict.size() / numTreads;
         System.out.println(chunkSize);
         int startIndex, endIndex;
 
-        for (int threadId = 0; threadId < 10; ++threadId){
+        for (int threadId = 0; threadId < numTreads; ++threadId) {
             startIndex = chunkSize * threadId;
             endIndex = (startIndex + chunkSize);
 
             // the last thread take the dictionary left
-            if ((threadId + 1 == 10) & (dict.size() % 10 != 0)){
+            if ((threadId + 1 == numTreads) & (dict.size() % numTreads != 0)) {
                 endIndex = dict.size();
             }
 
@@ -56,11 +56,11 @@ public class DictDecrypting {
             System.out.println("Starting word " + l.get(0) + " and end wod " + l.get(l.size() - 1));
         }
 
-         */
 
         // ********************************************************************************************************** \\
         //                                              Dictionary search                                             \\
         // ********************************************************************************************************** \\
+
 
         ArrayList<List> speedupC = new ArrayList<>();
         ArrayList<List> speedupR = new ArrayList<>();
@@ -75,7 +75,7 @@ public class DictDecrypting {
             synchronizedFinder.setThreads(numThread);
 
             System.out.println("/***********************************************************************************/");
-            System.out.println("Starting iteration " + (numThread));
+            System.out.println("Starting test with " + numThread + " num threads");
             System.out.println("/***********************************************************************************/");
 
             ArrayList<Double> C = new ArrayList<>();
@@ -83,13 +83,17 @@ public class DictDecrypting {
             ArrayList<Double> L = new ArrayList<>();
             ArrayList<Double> S = new ArrayList<>();
 
-            for (int i = 0; i < Integer.parseInt(args[2]); ++ i) {
+            for (int i = 0; i < Integer.parseInt(args[2]); ++i) {
 
-                double sequentialElapsedTime = sequentialFinder.dictionaryFinder(dict);
+                double startTime = System.nanoTime();
+                sequentialFinder.dictionaryFinder(dict);
+                double sequentialElapsedTime = (System.nanoTime() - startTime) / 1000000;
+
                 double durationCallable = callableFinder.dictionaryFinder(dict);
                 double durationRunnable = runnableFinder.dictionaryFinder(dict);
                 double durationLock = readWriteLockFinder.dictionaryFinder(dict);
                 double durationSync = synchronizedFinder.dictionaryFinder(dict);
+
 
                 C.add(sequentialElapsedTime / durationCallable);
                 R.add(sequentialElapsedTime / durationRunnable);
