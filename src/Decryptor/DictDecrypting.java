@@ -91,14 +91,15 @@ public class DictDecrypting {
         String [] name = args[1].split("/");
 
         //Creating a File object
-        File file = new File(System.getProperty("user.dir") + "DictResults/" + name[1]);
+        System.out.println(System.getProperty("user.dir") + "/DictResults/" + name[1]);
+        File file = new File(System.getProperty("user.dir") + "/DictResults/" + name[1]);
 
         //Creating the directory
         if (!file.exists()){
             file.mkdir();
         }
 
-        writeCSV(firstOrderStatistics(speedup, Integer.parseInt(args[0])), "DictResults/" + name[1] + "/" + args[4] + "Speedup_" + args[3]);
+        writeCSV(firstOrderStatistics(speedup, Integer.parseInt(args[0])), System.getProperty("user.dir") + "/DictResults/" + name[1] + "/" + args[4] + "Speedup_" + args[3]);
 
 
     }

@@ -3,7 +3,7 @@
 
 maxThreads=12
 dictionary="Dictionaries/Dictionary_data.txt"
-maxIteration=10
+maxIteration=1
 numberPss=5
 method="Callable"
 
