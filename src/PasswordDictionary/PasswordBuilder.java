@@ -2,13 +2,47 @@ package PasswordDictionary;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class PasswordBuilder {
 
-    // args[0] deifine the starting dict to modify
-    // args[1] name of the file to save the passwrd dictionary
+    // args[0] define the starting dict to modify
+    // args[1] name of the file to save the password dictionary
+    // args[2] method used
     public static void main(String [] args) throws IOException {
-        DictionaryModifier dm = new DictionaryModifier(args[0]);
+
+        switch (args[2]) {
+            case "data":
+                dataDictionary(args[1]);
+                break;
+            case "words":
+                wordDictionary(args[0], args[1]);
+        }
+
+    }
+
+    private static void dataDictionary(String savePath) throws IOException {
+
+        DataDictCreator dataDictCreator = new DataDictCreator(1600, 2020);
+
+        System.out.println("Create Data Dict");
+        ArrayList<String> dataDict = dataDictCreator.createDict();
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter(savePath + ".txt", true));
+
+        System.out.println("Write all passwords " + dataDict.size());
+
+        for (String data : dataDict){
+            writer.write(data + "\n");
+        }
+        writer.close();
+    }
+
+    private static void wordDictionary(String startingDict, String savePath) throws IOException {
+
+        DictionaryModifier dm = new DictionaryModifier(startingDict);
+        int maxDictSize = 19958400;
 
         // Create different dictionary type
         System.out.println("Create Capital Letter Dict");
@@ -21,33 +55,30 @@ public class PasswordBuilder {
         System.out.println("Create permute dictionary");
         dm.permuteDict();
 
-        // Write the final folder
-        BufferedWriter writer = new BufferedWriter(new FileWriter(args[1] + args[2] + ".txt", true));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(savePath + ".txt", true));
         ArrayList<String> m = dm.mergingFolders();
-        ArrayList<String> p = dm.mergingFolders();
+        ArrayList<String> p = dm.mergingPermutation();
 
-        for (int i = 0; i < p.size(); ++i){
-            if (args[2] == "even"){
-                if ( (m.size() % 2 == 0) & (m.size() % 4 == 0) & (m.size() % 6 == 0) & (m.size() % 8 == 0) & (m.size() % 10 == 0) & (m.size() % 12 == 0) ) {
-                    break;
-                }
-            }else {
 
-                if ( (m.size() % 3 == 0) & (m.size() % 5 == 0) & (m.size() % 7 == 0) & (m.size() % 9 == 0) & (m.size() % 11 == 0)) {
-                    break;
-                }
-            }
-
+        int i = 0;
+        while (m.size() <= maxDictSize - 1) {
             m.add(p.get(i));
+
+            ++i;
         }
 
-        System.out.println(" Write all passwords ");
+
+
+        Collections.shuffle(m);
+        System.out.println(" Write all passwords " + m.size());
 
 
         // 19 958 400
-        for (int i = 1; i <= m.size(); ++i){
-            writer.write(m.get(i) + "\n");
+        for (String word : m){
+            writer.write(word + "\n");
         }
         writer.close();
+
     }
+
 }
