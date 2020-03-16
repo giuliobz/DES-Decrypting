@@ -3,11 +3,11 @@
 
 maxThreads=12
 dictionary="Dictionaries/Dictionary_data.txt"
-maxIteration=1
-numberPss=100
+maxIteration=10
+numberPss=5
 method="Callable"
 
-for i in {1..4}
+for i in {1..10}
 do
   ans=$((numberPss * i))
 

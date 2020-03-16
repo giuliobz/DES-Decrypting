@@ -91,15 +91,14 @@ public class DictDecrypting {
         String [] name = args[1].split("/");
 
         //Creating a File object
-
-        File file = new File("/DictResults/" + name[1]);
+        File file = new File(System.getProperty("user.dir") + "DictResults/" + name[1]);
 
         //Creating the directory
         if (!file.exists()){
             file.mkdir();
         }
 
-        writeCSV(firstOrderStatistics(speedup, Integer.parseInt(args[0])), "/DictResults/" + name[1] + "/" + args[4] + "Speedup_" + args[3]);
+        writeCSV(firstOrderStatistics(speedup, Integer.parseInt(args[0])), "DictResults/" + name[1] + "/" + args[4] + "Speedup_" + args[3]);
 
 
     }
@@ -111,12 +110,13 @@ public class DictDecrypting {
         for (int numThread = 2; numThread <= maxThread; ++numThread) {
 
             dictParallelFinder.setThreads(numThread);
-            des.resetBool();
+            
 
             System.out.println("/***********************************************************************************");
             System.out.println("Starting test with " + numThread + " num threads");
             System.out.println("/***********************************************************************************");
 
+	    des.resetBool();
             double sequentialElapsedTime = (dictSequentialFinder.dictionaryFinder(dict)) / numPasswords;
             des.resetBool();
             double durationCallable = dictParallelFinder.dictionaryFinder(dict) / numPasswords;
