@@ -35,9 +35,9 @@ public class DictSearcher implements Runnable {
                 String passwords = dictionary.get(i);
 
                 byte[] epss = des.encryt(passwords.getBytes());
+                des.checkPss(epss);
 
-                if (des.checkEqual(epss)) {
-                    System.out.println("Password find by thread " + threadID + " is " + passwords + " after " + i + " iteration");
+                if (des.checkEqual()) {
                     findPassword.set(true);
                 }
                 ++i;

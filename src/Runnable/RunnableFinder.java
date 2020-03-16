@@ -1,6 +1,7 @@
 package Runnable;
 
 import Decryptor.DES;
+import Decryptor.FindingClass;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class RunnableFinder {
+public class RunnableFinder implements FindingClass {
 
     // define variable to password search
     private DES des;
@@ -27,13 +28,14 @@ public class RunnableFinder {
         this.findPassword = new AtomicBoolean(false);
     }
 
+    @Override
     public void setThreads(int numberThreads) {
         this.numberThreads = numberThreads;
         ds = new ArrayList<DictSearcher>();
         findPassword = new AtomicBoolean(false);
     }
 
-
+    @Override
     public double dictionaryFinder(ArrayList<String> dictionary) throws FileNotFoundException, InterruptedException {
 
         // create dict chunk

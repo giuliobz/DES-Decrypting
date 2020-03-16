@@ -5,6 +5,7 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.security.SecureRandom;
@@ -17,15 +18,19 @@ public class DES {
     private  byte[] raw;
 
     // encrypted password variable
-    private byte [] encryptPss;
+    private ArrayList<byte []> encryptsPss;
+    private ArrayList<Boolean> areEnripted;
 
-    public DES(String password) {
+    public DES(ArrayList<String> passwords) {
             try{
                 generateSymmetricKey();
 
-                // encrypt the password to find
-                byte [] pss = password.getBytes();
-                encryptPss = encryt(pss);
+                for (String p : passwords) {
+                    // encrypt the password to find
+                    byte [] pss = p.getBytes();
+                    encryptsPss.add(encryt(pss));
+                    areEnripted.add(false);
+                }
 
             }catch (Exception e){
                 System.out.println("Error in symmetric key cration");
@@ -83,13 +88,18 @@ public class DES {
         return encrypt;
     }
 
-    public boolean checkEqual(byte [] clear) {
+    public boolean checkPss(byte [] clear) {
 
-        if (Arrays.equals(encryptPss, clear)){
+        if (encryptsPss.contains(clear)){
+            areEnripted.set(encryptsPss.indexOf(clear), true);
             return true;
-        } else {
-            return false;
         }
+
+        return false;
+    }
+
+    public boolean checkEqual() {
+        return areEnripted.stream().distinct().limit(areEnripted.size()).count() <= 1;
     }
 
 }

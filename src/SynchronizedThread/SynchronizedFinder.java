@@ -1,6 +1,7 @@
 package SynchronizedThread;
 
 import Decryptor.DES;
+import Decryptor.FindingClass;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class SynchronizedFinder {
+public class SynchronizedFinder implements FindingClass {
 
     // define variable to password search
     private DES des;
@@ -25,13 +26,14 @@ public class SynchronizedFinder {
         this.findPasswordDict = new State();
     }
 
+    @Override
     public void setThreads(int numThread) {
         this.numberThreads = numThread;
         ds = new ArrayList<DictSearcher>();
         this.findPasswordDict.reset();
     }
 
-
+    @Override
     public double dictionaryFinder(ArrayList<String> dictionary) throws  InterruptedException {
 
 

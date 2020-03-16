@@ -1,6 +1,7 @@
 package ReadWriteLock;
 
 import Decryptor.DES;
+import Decryptor.FindingClass;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class ReadWriteLockFinder {
+public class ReadWriteLockFinder implements FindingClass {
 
     // define variable to password search
     private DES des;
@@ -25,12 +26,14 @@ public class ReadWriteLockFinder {
         this.findPassword = new State();
     }
 
+    @Override
     public void setThreads(int numberThreads){
         this.numberThreads = numberThreads;
         ds = new ArrayList<DictSearcher>();
         this.findPassword.reset();
     }
 
+    @Override
     public double dictionaryFinder(ArrayList<String> dictionary) throws InterruptedException {
 
         // create dict chunk

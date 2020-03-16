@@ -1,6 +1,7 @@
 package Callable;
 
 import Decryptor.DES;
+import Decryptor.FindingClass;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class CallableFinder {
+public class CallableFinder implements FindingClass {
 
     // define variable to password search
     private DES des;
@@ -17,7 +18,7 @@ public class CallableFinder {
 
     // define the collection of searcher
     private List<DictSearcher> ds;
-    private List<Future<String>> futures;
+    private List<Future<ArrayList<String>>> futures;
 
     public CallableFinder(DES des, int numberThreads) {
         this.des = des;
@@ -27,12 +28,15 @@ public class CallableFinder {
         this.findPassword = new AtomicBoolean(false);
     }
 
+    @Override
     public void setThreads(int numberThreads) {
         this.numberThreads = numberThreads;
         this.ds = new ArrayList<DictSearcher>();
         this.findPassword = new AtomicBoolean(false);
     }
 
+
+    @Override
     public double dictionaryFinder(ArrayList<String> dictionary) {
 
 
