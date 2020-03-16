@@ -102,7 +102,7 @@ public class DictDecrypting {
             file.mkdir();
         }
 
-        writeCSV(firstOrderStatistics(speedup, maxThread), path + "/" + args[4] + "Speedup_" + args[3]);
+        writeCSV(firstOrderStatistics(speedup), path + "/" + args[4] + "Speedup_" + args[3], Integer.parseInt(args[0]));
 
 
     }
@@ -145,14 +145,14 @@ public class DictDecrypting {
         return dict;
     }
 
-    public static ArrayList<List> firstOrderStatistics(ArrayList<List> data, int numberThread) {
+    public static ArrayList<List> firstOrderStatistics(ArrayList<List> data) {
 
         ArrayList<List> speedup = new ArrayList<>();
 
         List<Double> mean = new ArrayList<>();
         List<Double> std = new ArrayList<>();
 
-        for (int i = 0; i < (numberThread - 1); ++i){
+        for (int i = 0; i < data.get(0).size(); ++i){
             mean.add(0.0);
             std.add(0.0);
         }
@@ -184,13 +184,13 @@ public class DictDecrypting {
         return speedup;
     }
 
-    public static void writeCSV(ArrayList<List> source, String name) throws IOException {
+    public static void writeCSV(ArrayList<List> source, String name, int startinThread) throws IOException {
         FileWriter csvWriter = new FileWriter(name + ".csv");
 
         List<Double> mean = source.get(0);
         List<Double> std = source.get(1);
 
-        int NumberThread = 2;
+        int NumberThread = startinThread;
         for (int i = 0; i < mean.size(); ++ i) {
             String [] data = {String.valueOf(mean.get(i)), String.valueOf(std.get(i)), String.valueOf(NumberThread) };
             csvWriter.append(String.join(",", data));

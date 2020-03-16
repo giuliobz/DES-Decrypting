@@ -1,22 +1,26 @@
 #!/bin/bash
 
-
 startThreads=12
-dictionary="Dictionaries/Dictionary_data.txt"
 maxIteration=10
 numberPss=50
+dictionary="Dictionary_data"
 method="Callable"
 tetsType="pss"
 #tetsType="thread"
 
+
 for i in {1..10}
 do
 
-  ans=$numberPss
 
-  if [ $testType = "pss" ]
+  if [ "$tetsType" = "pss" ]
   then
     ans=$((numberPss * i))
+  fi
+
+  if [ "$tetsType" = "thread" ]
+  then
+    ans=$numberPss
   fi
 
 
@@ -25,9 +29,6 @@ do
   echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
   echo ""
 
-  java -jar /home/bazza/Scrivania/DES-Decrypting/out/artifacts/DES_Decrypting_jar/DES-Decrypting.jar $startThreads $dictionary $maxIteration $ans $method $tetsType
+  java -jar /home/bazza/Scrivania/DES-Decrypting/out/artifacts/DES_Decrypting_jar/DES-Decrypting.jar $startThreads "Dictionaries/$dictionary.txt" $maxIteration $ans $method $tetsType
 
 done
-
-
-
