@@ -59,7 +59,7 @@ public class ReadWriteLockFinder implements FindingClass {
         try {
 
             // invoke all thread
-            System.out.println("Starting Lock Thread Dict Search");
+            //System.out.println("Starting Lock Thread Dict Search");
             for (Runnable r : ds) {
                 executorService.submit(r);
             }

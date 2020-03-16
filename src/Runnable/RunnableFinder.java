@@ -59,7 +59,7 @@ public class RunnableFinder implements FindingClass {
         double startTime = System.nanoTime();
 
         try {
-            System.out.println("Starting Runnable Thread Dict Search");
+            //System.out.println("Starting Runnable Thread Dict Search");
             for (Runnable r : ds) {
                 executorService.submit(r);
             }

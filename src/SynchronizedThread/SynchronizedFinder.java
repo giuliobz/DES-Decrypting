@@ -60,7 +60,7 @@ public class SynchronizedFinder implements FindingClass {
         try {
 
             // invoke all thread
-            System.out.println("Starting Sync Thread Dict Search");
+            //System.out.println("Starting Sync Thread Dict Search");
             for (Runnable r : ds) {
                 executorService.submit(r);
             }

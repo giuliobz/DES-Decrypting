@@ -25,7 +25,7 @@ public class SequentialFinder implements FindingClass {
             dictionary to hack the password that the user want to find.
         */
 
-        System.out.println("Starting searching password in dictionary");
+        //System.out.println("Starting searching password in dictionary");
         double startTime = System.nanoTime();
         // Start finding password
         for (String passwords : dictionary){
@@ -33,7 +33,7 @@ public class SequentialFinder implements FindingClass {
             des.checkPss(epss);
 
             if (des.checkEqual()){
-                System.out.println("Sequential method find all passwords");
+                //System.out.println("Sequential method find all passwords");
                 break;
             }
         }

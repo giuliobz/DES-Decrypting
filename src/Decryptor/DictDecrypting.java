@@ -5,14 +5,12 @@ import Runnable.RunnableFinder;
 import ReadWriteLock.ReadWriteLockFinder;
 import SynchronizedThread.SynchronizedFinder;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class DictDecrypting {
 
@@ -35,6 +33,8 @@ public class DictDecrypting {
         FindingClass parallelFinder = null;
         ArrayList<List> speedup = new ArrayList<>();
 
+
+
         // ********************************************************************************************************** \\
         //                                              Dictionary search                                             \\
         // ********************************************************************************************************** \\
@@ -52,28 +52,28 @@ public class DictDecrypting {
                 case "Callable":
 
                     parallelFinder = new CallableFinder(des, 2);
-                    speedup.add(startSearch(sequentialFinder, parallelFinder, dict, Integer.parseInt(args[0]), passwords.size()));
+                    speedup.add(startSearch(sequentialFinder, parallelFinder, des, dict, Integer.parseInt(args[0]), passwords.size()));
 
                     break;
 
                 case "Runnable":
 
                     parallelFinder = new RunnableFinder(des, 2);
-                    speedup.add(startSearch(sequentialFinder, parallelFinder, dict, Integer.parseInt(args[0]), passwords.size()));
+                    speedup.add(startSearch(sequentialFinder, parallelFinder, des, dict, Integer.parseInt(args[0]), passwords.size()));
 
                     break;
 
                 case "Lock":
 
                     parallelFinder = new ReadWriteLockFinder(des, 2);
-                    speedup.add(startSearch(sequentialFinder, parallelFinder, dict, Integer.parseInt(args[0]), passwords.size()));
+                    speedup.add(startSearch(sequentialFinder, parallelFinder, des, dict, Integer.parseInt(args[0]), passwords.size()));
 
                     break;
 
                 case "Sync":
 
                     parallelFinder = new SynchronizedFinder(des, 2);
-                    speedup.add(startSearch(sequentialFinder, parallelFinder, dict, Integer.parseInt(args[0]), passwords.size()));
+                    speedup.add(startSearch(sequentialFinder, parallelFinder, des, dict, Integer.parseInt(args[0]), passwords.size()));
 
                     break;
 
@@ -89,30 +89,39 @@ public class DictDecrypting {
 
 
         String [] name = args[1].split("/");
-        writeCSV(firstOrderStatistics(speedup, Integer.parseInt(args[0])), args[4] + "Speedup_" + args[3] + "_" + name[1]);
+
+        //Creating a File object
+
+        File file = new File("/DictResults/" + name[1]);
+
+        //Creating the directory
+        if (!file.exists()){
+            file.mkdir();
+        }
+
+        writeCSV(firstOrderStatistics(speedup, Integer.parseInt(args[0])), "/DictResults/" + name[1] + "/" + args[4] + "Speedup_" + args[3]);
+
 
     }
 
-    private static ArrayList<Double> startSearch(FindingClass dictSequentialFinder, FindingClass dictParallelFinder, ArrayList<String> dict, int maxThread, int numPasswords) throws Exception {
+    private static ArrayList<Double> startSearch(FindingClass dictSequentialFinder, FindingClass dictParallelFinder, DES des, ArrayList<String> dict, int maxThread, int numPasswords) throws Exception {
 
         ArrayList<Double> dF = new ArrayList<>();
 
         for (int numThread = 2; numThread <= maxThread; ++numThread) {
 
             dictParallelFinder.setThreads(numThread);
+            des.resetBool();
 
             System.out.println("/***********************************************************************************");
             System.out.println("Starting test with " + numThread + " num threads");
             System.out.println("/***********************************************************************************");
 
             double sequentialElapsedTime = (dictSequentialFinder.dictionaryFinder(dict)) / numPasswords;
-
+            des.resetBool();
             double durationCallable = dictParallelFinder.dictionaryFinder(dict) / numPasswords;
 
             dF.add(sequentialElapsedTime / durationCallable);
-
-            System.out.println("/*******************************************************************************");
-            System.out.println("");
 
         }
 
@@ -172,7 +181,7 @@ public class DictDecrypting {
     }
 
     public static void writeCSV(ArrayList<List> source, String name) throws IOException {
-        FileWriter csvWriter = new FileWriter("DictResults/" + name + ".csv");
+        FileWriter csvWriter = new FileWriter(name + ".csv");
 
         List<Double> mean = source.get(0);
         List<Double> std = source.get(1);
@@ -193,14 +202,14 @@ public class DictDecrypting {
         ArrayList<String> passwords = new ArrayList<>();
 
         int chunk = dictionary.size() / numPassword;
-        Random r = new Random();
         int start = 0;
-        int end = chunk - 1;
+        int end = chunk;
 
         for (int i = 0; i < numPassword; ++ i) {
-            passwords.add(dictionary.get( r.nextInt(end - start) + start ));
+
+            passwords.add(dictionary.get( ThreadLocalRandom.current().nextInt(start, end)) );
             start += chunk;
-            end += chunk - 1;
+            end += chunk;
 
             if ((i + 1) == numPassword ){
                 end = dictionary.size();

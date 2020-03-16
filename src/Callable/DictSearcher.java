@@ -40,11 +40,13 @@ public class DictSearcher implements Callable<ArrayList<String>> {
                 byte[] epss = des.encryt(passwords.getBytes());
 
                 if (des.checkPss(epss)){
+                    //System.out.println("Thread " + threadID + " find password " + passwords);
                     passwordFind.add(passwords);
-                }
 
-                if (des.checkEqual()) {
-                    findPassword.set(true);
+                    if (des.checkEqual()) {
+                        //System.out.println("Thread " + threadID + " stop all");
+                        findPassword.set(true);
+                    }
                 }
                 ++i;
             }

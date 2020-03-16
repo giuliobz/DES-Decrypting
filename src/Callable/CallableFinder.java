@@ -58,7 +58,7 @@ public class CallableFinder implements FindingClass {
         }
 
         ExecutorService executorService = Executors.newFixedThreadPool(numberThreads);
-        System.out.println("Starting Callable Thread Dict Search");
+        //System.out.println("Starting Callable Thread Dict Search");
         double startTime = System.nanoTime();
 
         try {

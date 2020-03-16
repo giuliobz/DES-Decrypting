@@ -6,8 +6,11 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 import java.security.SecureRandom;
+import java.util.stream.IntStream;
 
 public class DES {
 
@@ -31,6 +34,10 @@ public class DES {
             System.err.println(e);
         }
 
+    }
+
+    public void resetBool() {
+        Collections.fill(areDecripted, Boolean.FALSE);
     }
 
     public void setPasswords(ArrayList<String> passwords) {
@@ -102,8 +109,11 @@ public class DES {
 
     public boolean checkPss(byte [] clear) {
 
-        if (encryptsPss.contains(clear)){
-            areDecripted.set(encryptsPss.indexOf(clear), true);
+        // check if inside there is or not the password enccypted
+        int index = IntStream.range(0, encryptsPss.size()).filter(i -> Arrays.equals(encryptsPss.get(i), clear)).findFirst().orElse(-1);
+
+        if (index != -1){
+            areDecripted.set(index, true);
             return true;
         }
 
