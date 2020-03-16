@@ -76,9 +76,6 @@ public class DES {
     }
 
     public byte[] encryt(byte[] clear) throws Exception {
-        /*
-           encrypt the byte array using the symmetric key
-         */
 
         SecretKeySpec skeySpec = new SecretKeySpec(raw, "DES");
         Cipher cipher = Cipher.getInstance("DES");
@@ -98,8 +95,6 @@ public class DES {
         return false;
     }
 
-    public boolean checkEqual() {
-        return areEnripted.stream().distinct().limit(areEnripted.size()).count() <= 1;
-    }
+    public boolean checkEqual() { return areEnripted.stream().allMatch(f -> f == true); }
 
 }
