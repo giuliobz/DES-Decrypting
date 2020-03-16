@@ -1,12 +1,13 @@
 #!/bin/bash
 
 
-startThreads=2
+startThreads=12
 dictionary="Dictionaries/Dictionary_data.txt"
 maxIteration=10
-numberPss=5
+numberPss=50
 method="Callable"
-tetsType="thread" #pss
+tetsType="pss"
+#tetsType="thread"
 
 for i in {1..10}
 do
