@@ -14,11 +14,12 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class DictDecrypting {
 
-    // args[0] the number of max threads (12)
+    // args[0] the number of starting threads
     // args[1] the dictionary for dictSearch
     // args[2] max iteretion per number of thread
     // args[3] the number of password to find
-    // args[4] the method used
+    // args[4] the parallel method used
+    // args[5] the test type (pss or thread : pss change the number of password using 12 thread, thead changes the number of thread with default password (100))
     public static void main(String[] args) throws Exception {
 
         // Dictionary used
@@ -32,6 +33,7 @@ public class DictDecrypting {
         SequentialFinder sequentialFinder = new SequentialFinder(des);
         FindingClass parallelFinder = null;
         ArrayList<List> speedup = new ArrayList<>();
+        int maxThread = 12;
 
 
 
@@ -52,28 +54,28 @@ public class DictDecrypting {
                 case "Callable":
 
                     parallelFinder = new CallableFinder(des, 2);
-                    speedup.add(startSearch(sequentialFinder, parallelFinder, des, dict, Integer.parseInt(args[0]), passwords.size()));
+                    speedup.add(startSearch(sequentialFinder, parallelFinder, des, dict, Integer.parseInt(args[0]), maxThread, passwords.size()));
 
                     break;
 
                 case "Runnable":
 
                     parallelFinder = new RunnableFinder(des, 2);
-                    speedup.add(startSearch(sequentialFinder, parallelFinder, des, dict, Integer.parseInt(args[0]), passwords.size()));
+                    speedup.add(startSearch(sequentialFinder, parallelFinder, des, dict, Integer.parseInt(args[0]), maxThread, passwords.size()));
 
                     break;
 
                 case "Lock":
 
                     parallelFinder = new ReadWriteLockFinder(des, 2);
-                    speedup.add(startSearch(sequentialFinder, parallelFinder, des, dict, Integer.parseInt(args[0]), passwords.size()));
+                    speedup.add(startSearch(sequentialFinder, parallelFinder, des, dict, Integer.parseInt(args[0]), maxThread, passwords.size()));
 
                     break;
 
                 case "Sync":
 
                     parallelFinder = new SynchronizedFinder(des, 2);
-                    speedup.add(startSearch(sequentialFinder, parallelFinder, des, dict, Integer.parseInt(args[0]), passwords.size()));
+                    speedup.add(startSearch(sequentialFinder, parallelFinder, des, dict, Integer.parseInt(args[0]), maxThread, passwords.size()));
 
                     break;
 
@@ -89,26 +91,27 @@ public class DictDecrypting {
 
 
         String [] name = args[1].split("/");
+        String path = System.getProperty("user.dir") + "/DictResults/" + args[4] + "_" + name[1].replace(".txt", "") + "_" + args[5];
 
         //Creating a File object
-        System.out.println(System.getProperty("user.dir") + "/DictResults/" + name[1]);
-        File file = new File(System.getProperty("user.dir") + "/DictResults/" + name[1]);
+        System.out.println(path);
+        File file = new File(path);
 
         //Creating the directory
         if (!file.exists()){
             file.mkdir();
         }
 
-        writeCSV(firstOrderStatistics(speedup, Integer.parseInt(args[0])), System.getProperty("user.dir") + "/DictResults/" + name[1] + "/" + args[4] + "Speedup_" + args[3]);
+        writeCSV(firstOrderStatistics(speedup, maxThread), path + "/" + args[4] + "Speedup_" + args[3]);
 
 
     }
 
-    private static ArrayList<Double> startSearch(FindingClass dictSequentialFinder, FindingClass dictParallelFinder, DES des, ArrayList<String> dict, int maxThread, int numPasswords) throws Exception {
+    private static ArrayList<Double> startSearch(FindingClass dictSequentialFinder, FindingClass dictParallelFinder, DES des, ArrayList<String> dict, int startThread, int maxThread, int numPasswords) throws Exception {
 
         ArrayList<Double> dF = new ArrayList<>();
 
-        for (int numThread = 2; numThread <= maxThread; ++numThread) {
+        for (int numThread = startThread; numThread <= maxThread; ++numThread) {
 
             dictParallelFinder.setThreads(numThread);
             
