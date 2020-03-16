@@ -1,14 +1,13 @@
 package Decryptor;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class SequentialFinder implements FindingClass {
 
 
     private DES des;
+    private ArrayList<Double> time;
 
     public SequentialFinder(DES des){
         this.des = des;

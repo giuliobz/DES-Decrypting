@@ -6,7 +6,6 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 import java.security.SecureRandom;
 
@@ -19,23 +18,39 @@ public class DES {
 
     // encrypted password variable
     private ArrayList<byte []> encryptsPss;
-    private ArrayList<Boolean> areEnripted;
+    private ArrayList<Boolean> areDecripted;
 
-    public DES(ArrayList<String> passwords) {
-            try{
-                generateSymmetricKey();
+    public DES() {
 
-                for (String p : passwords) {
-                    // encrypt the password to find
-                    byte [] pss = p.getBytes();
-                    encryptsPss.add(encryt(pss));
-                    areEnripted.add(false);
-                }
+        try {
 
-            }catch (Exception e){
-                System.out.println("Error in symmetric key cration");
-                System.err.println(e);
+            generateSymmetricKey();
+
+        } catch (Exception e) {
+            System.out.println("Error in symmetric key cration");
+            System.err.println(e);
+        }
+
+    }
+
+    public void setPasswords(ArrayList<String> passwords) {
+        encryptsPss = new ArrayList<>();
+        areDecripted = new ArrayList<>();
+
+        try{
+
+            for (String p : passwords) {
+                // encrypt the password to find
+                byte [] pss = p.getBytes();
+                encryptsPss.add(encryt(pss));
+                areDecripted.add(false);
             }
+
+        }catch (Exception e){
+            System.out.println("Error in symmetric key cration");
+            System.err.println(e);
+        }
+
     }
 
 
@@ -88,13 +103,13 @@ public class DES {
     public boolean checkPss(byte [] clear) {
 
         if (encryptsPss.contains(clear)){
-            areEnripted.set(encryptsPss.indexOf(clear), true);
+            areDecripted.set(encryptsPss.indexOf(clear), true);
             return true;
         }
 
         return false;
     }
 
-    public boolean checkEqual() { return areEnripted.stream().allMatch(f -> f == true); }
+    public boolean checkEqual() { return areDecripted.stream().allMatch(f -> f == true); }
 
 }

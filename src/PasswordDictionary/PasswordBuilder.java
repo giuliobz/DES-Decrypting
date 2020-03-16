@@ -68,12 +68,9 @@ public class PasswordBuilder {
         }
 
 
-
-        Collections.shuffle(m);
+        //Collections.shuffle(m);
         System.out.println(" Write all passwords " + m.size());
 
-
-        // 19 958 400
         for (String word : m){
             writer.write(word + "\n");
         }

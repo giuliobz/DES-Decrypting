@@ -2,9 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32f5a25f-e37c-4239-8ba2-d017894a1d99" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/DictResults/CallableSpeedup_5_Dictionary_data.txt.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EvenDictResults/AllTrhead/CallableSpeedup_10.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EvenDictResults/AllTrhead/LockSpeedup_10.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EvenDictResults/AllTrhead/RunnableSpeedup_10.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EvenDictResults/AllTrhead/SyncSpeedup_10.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DES-Decrypting/Decryptor/DES.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DES-Decrypting/Decryptor/DES.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DES-Decrypting/Decryptor/DictDecrypting.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DES-Decrypting/Decryptor/DictDecrypting.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DES-Decrypting/Decryptor/SequentialFinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DES-Decrypting/Decryptor/SequentialFinder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DES-Decrypting/PasswordDictionary/PasswordBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DES-Decrypting/PasswordDictionary/PasswordBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DES-Decrypting/prova.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Decryptor/DES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Decryptor/DES.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Decryptor/DictDecrypting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Decryptor/DictDecrypting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Decryptor/SequentialFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Decryptor/SequentialFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PasswordDictionary/PasswordBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PasswordDictionary/PasswordBuilder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +110,7 @@
     <configuration name="DictDecrypting" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Decryptor.DictDecrypting" />
       <module name="DES-Decrypting" />
-      <option name="PROGRAM_PARAMETERS" value="12 Dictionaries/Dictionary_even.txt 10" />
+      <option name="PROGRAM_PARAMETERS" value="12 Dictionaries/Dictionary_data.txt 10 10 Callable" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Callable.*" />
@@ -112,7 +124,7 @@
     <configuration name="PasswordBuilder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="PasswordDictionary.PasswordBuilder" />
       <module name="DES-Decrypting" />
-      <option name="PROGRAM_PARAMETERS" value="English8Words.txt Dictionaries/Dictionary_words words" />
+      <option name="PROGRAM_PARAMETERS" value="English8Words.txt Dictionaries/Dictionary_tiny words" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="PasswordDictionary.*" />
@@ -129,8 +141,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PasswordBuilder" />
         <item itemvalue="Application.DictDecrypting" />
+        <item itemvalue="Application.PasswordBuilder" />
       </list>
     </recent_temporary>
   </component>
@@ -181,7 +193,7 @@
       <workItem from="1584206210425" duration="4043000" />
       <workItem from="1584268043767" duration="598000" />
       <workItem from="1584295734240" duration="2685000" />
-      <workItem from="1584347635090" duration="6190000" />
+      <workItem from="1584347635090" duration="11104000" />
     </task>
     <task id="LOCAL-00001" summary="'update .gitignore'">
       <created>1583169956972</created>
@@ -408,10 +420,10 @@
       <screen x="0" y="27" width="1920" height="1052" />
     </state>
     <state x="696" y="306" width="524" height="492" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.27.1920.1052@0.27.1920.1052" timestamp="1583593008512" />
-    <state x="290" y="353" width="1076" height="658" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584353825590">
+    <state x="204" y="299" width="1076" height="658" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584358740095">
       <screen x="0" y="27" width="1920" height="1052" />
     </state>
-    <state x="290" y="353" width="1076" height="658" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1052@0.27.1920.1052" timestamp="1584353825590" />
+    <state x="204" y="299" width="1076" height="658" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1052@0.27.1920.1052" timestamp="1584358740095" />
     <state x="771" y="196" width="374" height="583" key="#com.intellij.ide.util.MemberChooser" timestamp="1584348863546">
       <screen x="0" y="27" width="1920" height="1052" />
     </state>
@@ -444,22 +456,22 @@
       <screen x="0" y="27" width="1920" height="1052" />
     </state>
     <state x="740" y="205" width="435" height="693" key="Github.UntrackedFilesDialog/0.27.1920.1052@0.27.1920.1052" timestamp="1583169604488" />
-    <state width="1874" height="308" key="GridCell.Tab.0.bottom" timestamp="1584353810568">
+    <state width="1874" height="269" key="GridCell.Tab.0.bottom" timestamp="1584358683147">
       <screen x="0" y="27" width="1920" height="1052" />
     </state>
-    <state width="1874" height="308" key="GridCell.Tab.0.bottom/0.27.1920.1052@0.27.1920.1052" timestamp="1584353810568" />
-    <state width="1874" height="308" key="GridCell.Tab.0.center" timestamp="1584353810567">
+    <state width="1874" height="269" key="GridCell.Tab.0.bottom/0.27.1920.1052@0.27.1920.1052" timestamp="1584358683147" />
+    <state width="1874" height="269" key="GridCell.Tab.0.center" timestamp="1584358683144">
       <screen x="0" y="27" width="1920" height="1052" />
     </state>
-    <state width="1874" height="308" key="GridCell.Tab.0.center/0.27.1920.1052@0.27.1920.1052" timestamp="1584353810567" />
-    <state width="1874" height="308" key="GridCell.Tab.0.left" timestamp="1584353810567">
+    <state width="1874" height="269" key="GridCell.Tab.0.center/0.27.1920.1052@0.27.1920.1052" timestamp="1584358683144" />
+    <state width="1874" height="269" key="GridCell.Tab.0.left" timestamp="1584358683142">
       <screen x="0" y="27" width="1920" height="1052" />
     </state>
-    <state width="1874" height="308" key="GridCell.Tab.0.left/0.27.1920.1052@0.27.1920.1052" timestamp="1584353810567" />
-    <state width="1874" height="308" key="GridCell.Tab.0.right" timestamp="1584353810568">
+    <state width="1874" height="269" key="GridCell.Tab.0.left/0.27.1920.1052@0.27.1920.1052" timestamp="1584358683142" />
+    <state width="1874" height="269" key="GridCell.Tab.0.right" timestamp="1584358683146">
       <screen x="0" y="27" width="1920" height="1052" />
     </state>
-    <state width="1874" height="308" key="GridCell.Tab.0.right/0.27.1920.1052@0.27.1920.1052" timestamp="1584353810568" />
+    <state width="1874" height="269" key="GridCell.Tab.0.right/0.27.1920.1052@0.27.1920.1052" timestamp="1584358683146" />
     <state width="1874" height="91" key="GridCell.Tab.1.bottom" timestamp="1584109138524">
       <screen x="0" y="27" width="1920" height="1052" />
     </state>
