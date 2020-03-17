@@ -7,36 +7,60 @@ import matplotlib.pyplot as plt
 import numpy as np 
 import csv 
 
-#def plot_values(means, stds):
-#    plt.plot (dims, means, '-o')
-#    plt.fill_between(dims,means-stds,means+stds,alpha=.1)
-#    plt.show()
+def multy_plot(means, means1, means2, dims):
+    # print(len(means[0]))
+    # print(type(dims[0]))
+    # yerr plot the stds, 0 means no stds
+    x = dims
+    # x = np.log(dims)
+    # print(x)
+    plt.errorbar(x, means, yerr=0, fmt='-o', label='Privatization')
+    # plt.errorbar(x, means1, yerr=0, fmt='-o',label='Lock')
+    plt.errorbar(x, means2, yerr=0, fmt='-o', label='Query')
+    plt.xticks(x,dims)
+    plt.legend(loc='best')
+    plt.title('Test on threads number')
+    plt.ylabel('Speed Up')
+    plt.xlabel('Testing values')
+    plt.savefig(save_path + '/graph.png')
+    plt.show()
 
-def read_multiple_csv(path):
+def plot(means, dims, testType, save_path, method):
+    x = dims
+    # x = np.log(dims)
+    plt.errorbar(x, means, yerr=0, fmt='-o', label= method + ' Thread')
+    plt.xticks(x,dims)
+    plt.legend(loc='best')
+    plt.title('Test on' + testType + ' number')
+    plt.ylabel('Speed Up')
+    plt.xlabel('Testing values')
+    plt.savefig(save_path + '/graph.png')
+    plt.show()
+
+def read_multiple_csv(plotting_data):
 
         mean = []
         std = []
         axes = []
 
-        files = glob.glob(path + "/*.csv")
+        files = glob.glob(plotting_data + "/*.csv")
 
         
         for filename in files:
-            data_df = pd.read_csv(path + '/'+ filename, error_bad_lines=False, names=["mean", "std", "queries"])
+            data_df = pd.read_csv(plotting_data + '/'+ filename, error_bad_lines=False, names=["mean", "std", "queries"])
             mean.append(data_df["mean"].values[0])
             std.append(data_df["std"].values[0])
             axes.append(data_df["queries"].values[0])
 
         return mean, std, axes
 
-def read_csv(path):
+def read_csv(plotting_data):
 
     mean = []
     std = []
     axes = []
 
-    filename = os.listdir(path + '/')
-    data_df = pd.read_csv(path + '/' + filename[0], error_bad_lines=False, names=["mean", "std", "queries"])
+    data_df = pd.read_csv(plotting_data, error_bad_lines=False, names=["mean", "std", "queries"])
 
     for i in range(data_df["mean"].values):
         mean.append(data_df["mean"].values[i])
@@ -46,34 +70,27 @@ def read_csv(path):
 
 if __name__ == "__main__":
 
-    path = sys.argv[1]
-    test_method = sys.argv[2]
+    plotting_data = sys.argv[1]
+    testType = sys.argv[2]
+    save_path = sys.argv[3]
+    method = sys.argv[4]
+
+    print(plotting_data)
+    print(testType)
+    print(save_path)
+    print(method)
 
     mean = []
     std = []
     axes = []
 
-    if test_method == "pss":
-        mean, std, axes = read_multiple_csv(path)
+    if testType == "pss":
+        mean, std, axes = read_multiple_csv(plotting_data)
 
     else:
-        mean, std, axes = read_csv(path)
+        mean, std, axes = read_csv(plotting_data)
 
-
-    #means = []
-    #stds = []
-    #dims = []
-    #with open('naive.csv') as csvFile:
-    #    csv_reader = csv.reader(csvFile, delimiter = ',')
-    #    for line in csvFile:
-    #        m, s, d = line.replace('\n','').split(',')
-    #        means.append(float(m))
-    #        stds.append(float(s))
-    #        dims.append(int(d))
-    # print(means)
-    # print(stds)
-
-    #plot_values(np.asarray(means), np.asarray(stds))
+    plot(mean, axes, testType, save_path, method)
 
 
 

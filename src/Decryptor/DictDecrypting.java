@@ -106,6 +106,7 @@ public class DictDecrypting {
         if (args[5] == "pss"){
             value = Integer.parseInt(args[3]);
         }
+        
         writeCSV(firstOrderStatistics(speedup), path + "/" + args[4] + "Speedup_" + args[3], value);
 
 
