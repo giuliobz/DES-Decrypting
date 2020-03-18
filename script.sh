@@ -53,7 +53,7 @@ do
 
 
         echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-        echo "Searching  $ans passwords using $method in $dictionary"
+        echo "Searching  $ans passwords using $method in $dictionary increasing $tetsType"
         echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
         echo ""
 
