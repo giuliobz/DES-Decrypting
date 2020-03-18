@@ -1,4 +1,5 @@
 import os
+import re
 import sys
 import glob
 import pandas as pd
@@ -6,6 +7,18 @@ import pandas as pd
 import matplotlib.pyplot as plt 
 import numpy as np 
 import csv 
+
+def atoi(text):
+    return int(text) if text.isdigit() else text
+
+def natural_keys(text):
+    '''
+    alist.sort(key=natural_keys) sorts in human order
+    http://nedbatchelder.com/blog/200712/human_sorting.html
+    (See Toothy's implementation in the comments)
+    '''
+    return [ atoi(c) for c in re.split(r'(\d+)', text) ]
+
 
 def multy_plot(means, means1, means2, dims):
     # print(len(means[0]))
@@ -31,7 +44,7 @@ def plot(means, dims, testType, save_path, method):
     plt.errorbar(x, means, yerr=0, fmt='-o', label= method + ' Thread')
     plt.xticks(x,dims)
     plt.legend(loc='best')
-    plt.title('Test on' + testType + ' number')
+    plt.title('Test on ' + testType + ' number')
     plt.ylabel('Speed Up')
     plt.xlabel('Testing values')
     plt.savefig(save_path + '/graph.png')
@@ -39,20 +52,21 @@ def plot(means, dims, testType, save_path, method):
 
 def read_multiple_csv(plotting_data):
 
-        mean = []
-        std = []
-        axes = []
+    mean = []
+    std = []
+    axes = []
 
-        files = glob.glob(plotting_data + "/*.csv")
+    files = os.listdir(plotting_data + "/")  
+    files.sort(key=lambda x: int(''.join(filter(str.isdigit, x))))  
 
-        
-        for filename in files:
-            data_df = pd.read_csv(plotting_data + '/'+ filename, error_bad_lines=False, names=["mean", "std", "queries"])
-            mean.append(data_df["mean"].values[0])
-            std.append(data_df["std"].values[0])
-            axes.append(data_df["queries"].values[0])
 
-        return mean, std, axes
+    for filename in files:
+        data_df = pd.read_csv(plotting_data + "/" + filename, error_bad_lines=False, names=["mean", "std", "queries"])
+        mean.append(data_df["mean"].values[0])
+        std.append(data_df["std"].values[0])
+        axes.append(data_df["queries"].values[0])
+
+    return mean, std, axes
 
 def read_csv(plotting_data):
 
@@ -62,10 +76,12 @@ def read_csv(plotting_data):
 
     data_df = pd.read_csv(plotting_data, error_bad_lines=False, names=["mean", "std", "queries"])
 
-    for i in range(data_df["mean"].values):
+    for i in range(len(data_df["mean"].values)):
         mean.append(data_df["mean"].values[i])
         std.append(data_df["std"].values[i])
         axes.append(data_df["queries"].values[i])
+
+    return mean, std, axes
 
 
 if __name__ == "__main__":
@@ -74,11 +90,6 @@ if __name__ == "__main__":
     testType = sys.argv[2]
     save_path = sys.argv[3]
     method = sys.argv[4]
-
-    print(plotting_data)
-    print(testType)
-    print(save_path)
-    print(method)
 
     mean = []
     std = []

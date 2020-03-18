@@ -89,7 +89,6 @@ public class DictDecrypting {
         //                                          Save Result in CSV                                                \\
         // ********************************************************************************************************** \\
 
-
         String [] name = args[1].split("/");
         String path = System.getProperty("user.dir") + "/DictResults/" + args[4] + "_" + name[1].replace(".txt", "") + "_" + args[5];
 
@@ -103,10 +102,12 @@ public class DictDecrypting {
         }
 
         int value = Integer.parseInt(args[0]);
-        if (args[5] == "pss"){
+        if (args[5].equals("pss")){
             value = Integer.parseInt(args[3]);
         }
-        
+
+        System.out.println(value);
+
         writeCSV(firstOrderStatistics(speedup), path + "/" + args[4] + "Speedup_" + args[3], value);
 
 
