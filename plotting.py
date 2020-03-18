@@ -1,5 +1,4 @@
 import os
-import re
 import sys
 import glob
 import pandas as pd
@@ -7,17 +6,6 @@ import pandas as pd
 import matplotlib.pyplot as plt 
 import numpy as np 
 import csv 
-
-def atoi(text):
-    return int(text) if text.isdigit() else text
-
-def natural_keys(text):
-    '''
-    alist.sort(key=natural_keys) sorts in human order
-    http://nedbatchelder.com/blog/200712/human_sorting.html
-    (See Toothy's implementation in the comments)
-    '''
-    return [ atoi(c) for c in re.split(r'(\d+)', text) ]
 
 
 def multy_plot(means, means1, means2, dims):
