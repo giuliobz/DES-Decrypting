@@ -24,7 +24,7 @@ def multy_plot(means, means1, means2, dims):
     plt.ylabel('Speed Up')
     plt.xlabel('Testing values')
     plt.savefig(save_path + '/graph.png')
-    plt.show()
+    #plt.show()
 
 def plot(means, dims, testType, save_path, method):
     x = dims
@@ -36,7 +36,7 @@ def plot(means, dims, testType, save_path, method):
     plt.ylabel('Speed Up')
     plt.xlabel('Testing values')
     plt.savefig(save_path + '/graph.png')
-    plt.show()
+    #plt.show()
 
 def read_multiple_csv(plotting_data):
 
