@@ -3,10 +3,6 @@
 maxIteration=10
 numberPss=100
 
-#dictionary="Dictionary_data"
-#method="Runnable"
-#tetsType="pss"
-#tetsType="thread"
 
 for dict in "Dictionary_data" "Dictionary_words"
 do
