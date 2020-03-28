@@ -107,6 +107,7 @@ public class DES {
         return encrypt;
     }
 
+
     public boolean checkPss(byte [] clear) {
 
         // check if inside there is or not the password enccypted
