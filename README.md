@@ -13,6 +13,15 @@ For more theorical details of our project please refers to the review(**IN PROGR
 * `$ git clone https://github.com/giuliobz/DES-Decrypting.git`
 * `$ cd DES-Decrypting-master`
 
+### Create the Database
+
+To crete the dictionary use the file [PasswordBuilder](src/PasswordDictionary/PasswordBuilder.java) and specify three arguments:
+
+- the starting dictionary to modify
+- file name to save the password dictionary
+- method used: **data** to ceate a Dictionary of birth date or **words** to create a Dictionary of words
+
+
 ### Run the experiments
 
 Inside the DES-Decrypting folder there is a script.sh that the user can use to reproduce the experiments made:
