@@ -7,25 +7,6 @@ import matplotlib.pyplot as plt
 import numpy as np 
 import csv 
 
-
-def multy_plot(means, means1, means2, dims):
-    # print(len(means[0]))
-    # print(type(dims[0]))
-    # yerr plot the stds, 0 means no stds
-    x = dims
-    # x = np.log(dims)
-    # print(x)
-    plt.errorbar(x, means, yerr=0, fmt='-o', label='Privatization')
-    # plt.errorbar(x, means1, yerr=0, fmt='-o',label='Lock')
-    plt.errorbar(x, means2, yerr=0, fmt='-o', label='Query')
-    plt.xticks(x,dims)
-    plt.legend(loc='best')
-    plt.title('Test on threads number')
-    plt.ylabel('Speed Up')
-    plt.xlabel('Testing values')
-    plt.savefig(save_path + '/graph.png')
-    #plt.show()
-
 def plot(means, dims, testType, save_path, method):
     x = dims
     # x = np.log(dims)
