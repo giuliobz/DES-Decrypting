@@ -4,8 +4,9 @@ This repository is a collaboration with [Niccolò Biondi](https://github.com/Nic
 
 Here we propose our solutions for the des-Decrypting task. In particular, we study the CPU parallelism, through Java Thread implementations. We compare those performances with a sequential method and we evaluate the resulting Speed Up and Efficiency.
 
-For more theorical details of our project please refers to the review(**IN PROGRESS**) and our presentation(**TODO**) in the `docs/`(**TODO**) subdirectory.
+In [DictResults](DictResults) there are all the experimental results.
 
+For more theorical details of our project please refers to the review and our presentation in the [docs](docs) subdirectory.
 ## Reproduce experiments
 
 ### Install  the repository
@@ -22,10 +23,21 @@ To crete the dictionary use the file [PasswordBuilder](src/PasswordDictionary/Pa
 - method used: **data** to ceate a Dictionary of birth date or **words** to create a Dictionary of words
 
 
+## Install javafx
+
+To use javafx follow te instruction [there](https://www.jetbrains.com/help/idea/javafx.html)
+
+## Build Artifact
+
+After run the scritpt, package your application in a JAR using [this](https://www.jetbrains.com/help/idea/packaging-a-module-into-a-jar-file.html) 
+
 ### Run the experiments
 
 Inside the DES-Decrypting folder there is a script.sh that the user can use to reproduce the experiments made:
 
+
 * `$ cd DES-Decrypting-master`
 * `$ chmode a+x script.sh`
 * `$ ./script.sh`
+
+NB: changing the packet JAR path

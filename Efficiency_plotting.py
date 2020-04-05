@@ -11,16 +11,17 @@ import csv
 def multy_plot(efficiency, dims, testType, save_path):
     x = dims
 
+    
     plt.errorbar(x, efficiency[0], yerr=0, fmt='-o', label='Callable')
-    plt.errorbar(x, efficiency[1], yerr=0, fmt='-o',label='Runnable')
+    plt.errorbar(x, efficiency[1], yerr=0, fmt='-o', label='Runnable')
     plt.errorbar(x, efficiency[2], yerr=0, fmt='-o', label='Lock')
-    plt.errorbar(x, efficiency[3], yerr=0, fmt='-o', label='Synch')
+    plt.errorbar(x, efficiency[3], yerr=0, fmt='-o', label='Sync')
     plt.xticks(x,dims)
     plt.legend(loc='best')
     plt.title('Test on ' + testType + ' number')
-    plt.ylabel('Efficiency')
+    plt.ylabel('Speedup')
     plt.xlabel('Testing values')
-    plt.savefig(save_path + '/Dictionary_words.png')
+    plt.savefig(save_path + '/Dictionary_data.png')
     plt.show()
 
 def read_multiple_csv(plotting_data):
@@ -30,6 +31,7 @@ def read_multiple_csv(plotting_data):
     axes = []
 
     files = os.listdir(plotting_data + "/")
+    files = [f for f in files if f != 'graph.png']
     files.sort(key=lambda x: int(''.join(filter(str.isdigit, x))))
 
 
@@ -60,26 +62,27 @@ def read_csv(plotting_data):
 if __name__ == "__main__":
 
     path = "/home/bazza/Scrivania/DES-Decrypting/DictResults/"
-    plotting_data = ["Callable_Dictionary_words_thread/CallableSpeedup_100.csv", "Runnable_Dictionary_words_thread/RunnableSpeedup_100.csv",
-                     "Lock_Dictionary_words_thread/LockSpeedup_100.csv", "Sync_Dictionary_words_thread/SyncSpeedup_100.csv"]
+    plotting_data = ["Callable_Dictionary_data_thread/CallableSpeedup_100.csv", "Runnable_Dictionary_data_thread/RunnableSpeedup_100.csv",
+                     "Lock_Dictionary_data_thread/LockSpeedup_100.csv", "Sync_Dictionary_data_thread/SyncSpeedup_100.csv"]
     
     testType = "thread"
     save_path = os.path.dirname(os.path.realpath(__file__))
-    dict = "words"
 
     efficiency = []
     std = []
     axes = []
 
     for k, plty in enumerate(plotting_data):
-        if dict == "words":
+        if "thread" in testType:
             tmp_mean, tmp_std, tmp_axes = read_csv(path + plty)
         else:
             tmp_mean, tmp_std, tmp_axes = read_multiple_csv(path + plty)
-        efficiency.append([])
 
+        efficiency.append([])
+        
         axes.append(tmp_axes)
+
         for i, m in enumerate(tmp_mean):
-            efficiency[k].append(m/tmp_axes[i])
+            efficiency[k].append(m/axes[i])
 
     multy_plot(efficiency, axes[0], testType, save_path)
