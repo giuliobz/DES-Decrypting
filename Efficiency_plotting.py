@@ -17,7 +17,7 @@ def multy_plot(efficiency, dims, testType, save_path, dictio):
     plt.xticks(x,dims)
     plt.legend(loc='best')
     plt.title('Test on ' + testType + ' number for ' + dictio)
-    plt.ylabel('Speedup')
+    plt.ylabel('Efficiency')
     plt.xlabel('Testing values')
     plt.savefig(save_path + '/Dictionary_words.png')
     plt.show()
@@ -61,15 +61,15 @@ if __name__ == "__main__":
 
     path = "/home/bazza/Scrivania/DES-Decrypting/DictResults/"
 
-    #plotting_data = ["Runnable_Dictionary_data_thread/RunnableSpeedup_100.csv", "Lock_Dictionary_data_thread/LockSpeedup_100.csv", "Sync_Dictionary_data_thread/SyncSpeedup_100.csv"]
+    plotting_data = ["Runnable_Dictionary_data_thread/RunnableSpeedup_100.csv", "Lock_Dictionary_data_thread/LockSpeedup_100.csv", "Sync_Dictionary_data_thread/SyncSpeedup_100.csv"]
 
-    plotting_data = ["Runnable_Dictionary_words_thread/RunnableSpeedup_100.csv", "Lock_Dictionary_words_thread/LockSpeedup_100.csv",  "Sync_Dictionary_words_thread/SyncSpeedup_100.csv"]
+    #plotting_data = ["Runnable_Dictionary_words_thread/RunnableSpeedup_100.csv", "Lock_Dictionary_words_thread/LockSpeedup_100.csv",  "Sync_Dictionary_words_thread/SyncSpeedup_100.csv"]
 
     #plotting_data = ["Runnable_Dictionary_data_pss", "Lock_Dictionary_data_pss", "Sync_Dictionary_data_pss"]
 
     #plotting_data = ["Runnable_Dictionary_words_pss/", "Lock_Dictionary_words_pss/", "Sync_Dictionary_words_pss/"]
 
-    dictio = "Dictionary_words"
+    dictio = "Dictionary_data"
     testType = "thread"
     save_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -89,6 +89,6 @@ if __name__ == "__main__":
         axes.append(tmp_axes)
 
         for i, m in enumerate(tmp_mean):
-            efficiency[k].append(m/axes[i])
+            efficiency[k].append(m/tmp_axes[i])
 
     multy_plot(efficiency, axes[0], testType, save_path, dictio)
