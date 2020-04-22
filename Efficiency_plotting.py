@@ -8,20 +8,18 @@ import numpy as np
 import csv 
 
 
-def multy_plot(efficiency, dims, testType, save_path):
+def multy_plot(efficiency, dims, testType, save_path, dictio):
     x = dims
 
-    
-    plt.errorbar(x, efficiency[0], yerr=0, fmt='-o', label='Callable')
-    plt.errorbar(x, efficiency[1], yerr=0, fmt='-o', label='Runnable')
-    plt.errorbar(x, efficiency[2], yerr=0, fmt='-o', label='Lock')
-    plt.errorbar(x, efficiency[3], yerr=0, fmt='-o', label='Sync')
+    plt.errorbar(x, efficiency[0], yerr=0, fmt='-o', label='Atomic')
+    plt.errorbar(x, efficiency[1], yerr=0, fmt='-o', label='Lock')
+    plt.errorbar(x, efficiency[2], yerr=0, fmt='-o', label='Sync')
     plt.xticks(x,dims)
     plt.legend(loc='best')
-    plt.title('Test on ' + testType + ' number')
+    plt.title('Test on ' + testType + ' number for ' + dictio)
     plt.ylabel('Speedup')
     plt.xlabel('Testing values')
-    plt.savefig(save_path + '/Dictionary_data.png')
+    plt.savefig(save_path + '/Dictionary_words.png')
     plt.show()
 
 def read_multiple_csv(plotting_data):
@@ -62,9 +60,16 @@ def read_csv(plotting_data):
 if __name__ == "__main__":
 
     path = "/home/bazza/Scrivania/DES-Decrypting/DictResults/"
-    plotting_data = ["Callable_Dictionary_data_thread/CallableSpeedup_100.csv", "Runnable_Dictionary_data_thread/RunnableSpeedup_100.csv",
-                     "Lock_Dictionary_data_thread/LockSpeedup_100.csv", "Sync_Dictionary_data_thread/SyncSpeedup_100.csv"]
-    
+
+    #plotting_data = ["Runnable_Dictionary_data_thread/RunnableSpeedup_100.csv", "Lock_Dictionary_data_thread/LockSpeedup_100.csv", "Sync_Dictionary_data_thread/SyncSpeedup_100.csv"]
+
+    plotting_data = ["Runnable_Dictionary_words_thread/RunnableSpeedup_100.csv", "Lock_Dictionary_words_thread/LockSpeedup_100.csv",  "Sync_Dictionary_words_thread/SyncSpeedup_100.csv"]
+
+    #plotting_data = ["Runnable_Dictionary_data_pss", "Lock_Dictionary_data_pss", "Sync_Dictionary_data_pss"]
+
+    #plotting_data = ["Runnable_Dictionary_words_pss/", "Lock_Dictionary_words_pss/", "Sync_Dictionary_words_pss/"]
+
+    dictio = "Dictionary_words"
     testType = "thread"
     save_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -80,9 +85,10 @@ if __name__ == "__main__":
 
         efficiency.append([])
         
+        #efficiency.append(tmp_mean)
         axes.append(tmp_axes)
 
         for i, m in enumerate(tmp_mean):
             efficiency[k].append(m/axes[i])
 
-    multy_plot(efficiency, axes[0], testType, save_path)
+    multy_plot(efficiency, axes[0], testType, save_path, dictio)
