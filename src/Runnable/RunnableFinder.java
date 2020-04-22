@@ -43,16 +43,16 @@ public class RunnableFinder implements FindingClass {
         int startIndex, endIndex;
 
         // Init the num threads searcher
-        for (int thredId = 0; thredId < numberThreads; ++thredId){
-            startIndex = chunkSize * thredId;
+        for (int threadId = 0; threadId < numberThreads; ++threadId){
+            startIndex = chunkSize * threadId;
             endIndex = (startIndex + chunkSize);
 
             // the last thread take the dictionary left
-            if ((thredId + 1 == numberThreads) & (dictionary.size() % numberThreads != 0)){
+            if ((threadId + 1 == numberThreads) & (dictionary.size() % numberThreads != 0)){
                 endIndex = dictionary.size();
             }
 
-            ds.add(new DictSearcher(des, findPassword, new ArrayList<String>(dictionary.subList(startIndex, endIndex)), thredId));
+            ds.add(new DictSearcher(des, findPassword, new ArrayList<String>(dictionary.subList(startIndex, endIndex)), threadId));
         }
 
         ExecutorService executorService = Executors.newFixedThreadPool(numberThreads);;

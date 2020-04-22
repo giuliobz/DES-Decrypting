@@ -21,7 +21,7 @@ public class DES {
 
     // encrypted password variable
     private ArrayList<byte []> encryptsPss;
-    private ArrayList<Boolean> areDecripted;
+    private ArrayList<Boolean> areDecrypted;
 
     public DES() {
 
@@ -30,19 +30,19 @@ public class DES {
             generateSymmetricKey();
 
         } catch (Exception e) {
-            System.out.println("Error in symmetric key cration");
+            System.out.println("Error in symmetric key creation");
             System.err.println(e);
         }
 
     }
 
     public void resetBool() {
-        Collections.fill(areDecripted, Boolean.FALSE);
+        Collections.fill(areDecrypted, Boolean.FALSE);
     }
 
     public void setPasswords(ArrayList<String> passwords) {
         encryptsPss = new ArrayList<>();
-        areDecripted = new ArrayList<>();
+        areDecrypted = new ArrayList<>();
 
         try{
 
@@ -50,7 +50,7 @@ public class DES {
                 // encrypt the password to find
                 byte [] pss = p.getBytes();
                 encryptsPss.add(encryt(pss));
-                areDecripted.add(false);
+                areDecrypted.add(false);
             }
 
         }catch (Exception e){
@@ -66,7 +66,7 @@ public class DES {
             Create the symmetric key and encrypt password
          */
 
-        // define random namber to simmetric key
+        // define random number to symmetric key
         Random r = new Random();
         int num = r.nextInt(10000);
 
@@ -110,17 +110,17 @@ public class DES {
 
     public boolean checkPss(byte [] clear) {
 
-        // check if inside there is or not the password enccypted
+        // check if inside there is or not the password encrypted
         int index = IntStream.range(0, encryptsPss.size()).filter(i -> Arrays.equals(encryptsPss.get(i), clear)).findFirst().orElse(-1);
 
         if (index != -1){
-            areDecripted.set(index, true);
+            areDecrypted.set(index, true);
             return true;
         }
 
         return false;
     }
 
-    public boolean checkEqual() { return areDecripted.stream().allMatch(f -> f == true); }
+    public boolean checkEqual() { return areDecrypted.stream().allMatch(f -> f == true); }
 
 }

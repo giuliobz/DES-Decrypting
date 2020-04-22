@@ -15,7 +15,7 @@ public class SequentialFinder implements FindingClass {
 
     @Override
     public void setThreads(int numberThreads) {
-        System.out.println("Is not for sequential function");
+        System.out.println("0 for sequential function");
     }
 
     @Override

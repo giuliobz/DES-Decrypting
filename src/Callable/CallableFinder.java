@@ -49,7 +49,7 @@ public class CallableFinder implements FindingClass {
             startIndex = chunkSize * threadId;
             endIndex = (startIndex + chunkSize);
 
-            // the last thread take the dictionary left
+            // the last thread takes the remaining dictionary values
             if ((threadId + 1 == numberThreads) & (dictionary.size() % numberThreads != 0)){
                 endIndex = dictionary.size();
             }
@@ -63,7 +63,7 @@ public class CallableFinder implements FindingClass {
 
         try {
 
-            // invoke all thread and wait to take results
+            // invoke all threads and wait to take results
             futures  = executorService.invokeAll(ds);
 
         }catch (Exception e){

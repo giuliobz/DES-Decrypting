@@ -44,7 +44,7 @@ public class DictSearcher implements Runnable {
             }
 
         } catch (Exception e) {
-            System.out.println("Error in thred " + threadID);
+            System.out.println("Error in thread " + threadID);
             System.err.println(e);
         }
     }
