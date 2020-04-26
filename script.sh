@@ -9,7 +9,7 @@ do
 
   dictionary=$dict
 
-  for m in "Callable" "Runnable" "Lock" "Sync"
+  for m in "Runnable" "Lock" "Sync"
   do
 
     method=$m
